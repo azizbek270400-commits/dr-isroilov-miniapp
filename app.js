@@ -1,1 +1,0 @@
-fetch('https://dr-isroilov-miniapp-3.onrender.com/admin/2026-01-12/5096290302').then(r=>r.json()).then(d=>{document.getElementById('list').innerText=JSON.stringify(d,null,2);});
