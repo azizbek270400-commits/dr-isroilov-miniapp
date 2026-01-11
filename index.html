@@ -1,1 +1,33 @@
-<html><body><h1>Doctor Panel</h1><div id='list'></div><script src='app.js'></script></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Qabulga yozilish</title>
+</head>
+<body>
+  <h1>Qabulga yozilish</h1>
+
+  <input id="name" placeholder="Ismingiz"><br><br>
+  <input id="phone" placeholder="Telefon"><br><br>
+  <input id="time" placeholder="Soat (masalan 14:30)"><br><br>
+
+  <button onclick="send()">Yuborish</button>
+
+  <script>
+    const API = "https://dr-isroilov-miniapp-3.onrender.com";
+
+    function send(){
+      fetch(API + "/book",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({
+          name: name.value,
+          phone: phone.value,
+          time: time.value
+        })
+      })
+      .then(r=>r.json())
+      .then(()=> alert("✅ Navbat yuborildi"));
+    }
+  </script>
+</body>
+</html>
